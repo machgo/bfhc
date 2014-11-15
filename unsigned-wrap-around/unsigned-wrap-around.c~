@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+void main(){
+  signed int=0;
+  while(i>0){
+	i = 2^5 + i;
+	printf("%i\n",i);
+  }
+
+  printf("%i\n",i);
+}
