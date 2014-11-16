@@ -5,6 +5,7 @@
 
 // include library
 #include <stdio.h>
+#include <string.h> /* memset */
 
 
 /*
@@ -152,7 +153,23 @@ int cmp_strings(char str_a[], char str_b[])
    */
 void string_distro(char str[])
 {
-    //your code here
+    int charCount[128];
+    int i = 0;
+    memset(charCount, 0, sizeof(charCount));
+    
+    while (str[i] != 0)
+    {
+        charCount[(int)str[i]]++;
+        i++;
+    }
+
+    for (i = 0; i < 128; i++)
+    {
+        if (charCount[i] > 0)
+        {
+            printf("\"%c\" was counted %d times\n", i, charCount[i]);
+        }
+    }
 }
 
 
@@ -164,7 +181,18 @@ void string_distro(char str[])
    */
 int substitute(char old, char new, char str[])
 {
-    return 0;
+    int i = 0;
+    int count = 0;
+    while (str[i] != 0)
+    {
+        if (str[i] == old)
+        {
+            str[i] = new;
+            count++;
+        }
+        i++;
+    }
+    return count;
 }
 
 /*
@@ -209,6 +237,9 @@ int main(int argc, char *argv[])
        - substitution of char in string
        - HaLo -> halo
        */
-
+    string_distro(big_string);   
+    printf("Replacing chars in %s\n", test_string);
+    printf ("Char %c was replaced %d times with %c\n", 'l', substitute('l', 'k', test_string), 'k');
+    printf("String is now: %s\n", test_string);
     return 0;
 }
