@@ -244,21 +244,19 @@ int main(int argc, char *argv[])
     printf( "Count of character %c in test-string \"%s\": %d\n", toFind, test_string, count(toFind, test_string));
     char big_string[] = "vier fuenf sechss siebenn";
     printf ("Biggest word in string \"%s\" starts at: %d\n", big_string, longest(big_string));
+
+    //comparision of 2 strings
     char str_a[] = "abc";
     char str_b[] = "djsflakjsdlf";
     printf ("Comparison between \"%s\" and \"%s\": %d\n", str_a, str_b, cmp_strings(str_a, str_b));
 
-    /*
-       - compare strings
-       - character distribution of a string
-       - substitution of char in string
-       - HaLo -> halo
-       */
+    //replacing chars
     string_distro(big_string);   
     printf("Replacing chars in %s\n", test_string);
     printf ("Char %c was replaced %d times with %c\n", 'l', substitute('l', 'k', test_string), 'k');
     printf("String is now: %s\n", test_string);
 
+    //convert to lowercase
     printf("Converting %s to lowercase\n", test_string);
     string2lower(test_string);
     printf("String is now: %s\n", test_string);
