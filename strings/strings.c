@@ -118,6 +118,10 @@ int longest(char str[])
         }
         i++;
     }
+
+    //last word...
+    if (word > biggest)
+        ret = wordstart;
     return ret;
 }
 
@@ -238,7 +242,7 @@ int main(int argc, char *argv[])
 
     //numbers of character
     printf( "Count of character %c in test-string \"%s\": %d\n", toFind, test_string, count(toFind, test_string));
-    char big_string[] = "fka jalsdf jkadsfl aksdfjasldkj jkalds fsadkjf j lksdfj sldkfjldkfjsdlkfjsldjflksdjf";
+    char big_string[] = "vier fuenf sechss siebenn";
     printf ("Biggest word in string \"%s\" starts at: %d\n", big_string, longest(big_string));
     char str_a[] = "abc";
     char str_b[] = "djsflakjsdlf";
