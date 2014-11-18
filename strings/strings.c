@@ -205,13 +205,26 @@ int substitute(char old, char new, char str[])
 */
 int string2lower(char str[])
 {
-    return 0;
+    //65-90 A-Z
+    //97-122 a-z
+    int i = 0; 
+    int count = 0;
+    while (str[i] != 0)
+    {
+        if (str[i] < 91 && str[i] > 64)
+        {
+            str[i] = str[i]+32;
+            count++;
+        }
+        i++;
+    }
+    return count;
 }
 
 int main(int argc, char *argv[])
 {
     // your declaration of string test_string and stuff
-    char test_string[] = "hallo";
+    char test_string[] = "HAllO";
     char toFind = 'l';
 
     //length of string
@@ -240,6 +253,10 @@ int main(int argc, char *argv[])
     string_distro(big_string);   
     printf("Replacing chars in %s\n", test_string);
     printf ("Char %c was replaced %d times with %c\n", 'l', substitute('l', 'k', test_string), 'k');
+    printf("String is now: %s\n", test_string);
+
+    printf("Converting %s to lowercase\n", test_string);
+    string2lower(test_string);
     printf("String is now: %s\n", test_string);
     return 0;
 }
