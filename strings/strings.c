@@ -6,6 +6,7 @@
 // include library
 #include <stdio.h>
 #include <string.h> /* memset */
+#include <stdlib.h>
 
 
 /*
@@ -241,6 +242,61 @@ int string2upper(char str[])
     return count;
 }
 
+int stringreverse(char str[])
+{
+    char * newString;
+    int i = 0;
+    int j = 0;
+    int l = length(str);
+    newString = (char *) malloc(l*sizeof(char));
+    memset(newString, 0, l*sizeof(char));
+
+    strcpy(newString, str);
+    memset(str, 0, l*sizeof(char));
+    j = l-1;
+    for (i = 0; i < l; i++)
+    {
+        str[i] = newString[j];
+        j--;
+    }
+    str[l] = 0;
+    free (newString);
+    return 0;
+}
+
+char* front(char str[], int l)
+{
+   char * newString;
+   int i = 0;
+   newString = (char *) malloc(l*sizeof(char));
+   memset(newString, 0, l*sizeof(char));
+
+   for (i = 0; i < l; i++)
+   {
+        newString[i] = str[i];
+   }
+   newString[i] = 0;
+   return newString;
+}
+
+char* back(char str[], int s)
+{
+    char * newString;
+    int i = 0;
+    int l = length(str)-s;
+    newString = (char *) malloc(l*sizeof(char));
+    memset(newString, 0, l*sizeof(char));
+
+    for (i = 0; i < l; i++)
+    {
+        newString[i] = str[s]; 
+        s++;
+    }
+    newString[i] = 0;
+    return newString;
+}
+
+
 int main(int argc, char *argv[])
 {
     // your declaration of string test_string and stuff
@@ -281,6 +337,21 @@ int main(int argc, char *argv[])
     printf("Converting %s to uppercase\n", test_string);
     string2upper(test_string);
     printf("String is now: %s\n", test_string);
+
+    //reversing string
+    printf("reversing %s \n", test_string);
+    stringreverse(test_string);
+    printf("String is now: %s\n", test_string);
+
+    //front-sbstring
+    char * fro = front(test_string, 3);
+    printf("String is now: %s\n", fro);
+    //back-sbstring
+    char * bac = back(test_string, 3);
+    printf("String is now: %s\n", bac);
+
+    free (fro);
+    free (bac);
 
     return 0;
 }
