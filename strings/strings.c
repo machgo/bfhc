@@ -225,6 +225,22 @@ int string2lower(char str[])
     return count;
 }
 
+int string2upper(char str[])
+{
+    int i = 0;
+    int count = 0;
+    while (str[i] != 0)
+    {
+        if (str[i] < 123 && str[i] > 96)
+        {
+            str[i] = str[i]-32;
+            count++;
+        }
+        i++;
+    }
+    return count;
+}
+
 int main(int argc, char *argv[])
 {
     // your declaration of string test_string and stuff
@@ -260,5 +276,11 @@ int main(int argc, char *argv[])
     printf("Converting %s to lowercase\n", test_string);
     string2lower(test_string);
     printf("String is now: %s\n", test_string);
+
+    //convert to uppercase
+    printf("Converting %s to uppercase\n", test_string);
+    string2upper(test_string);
+    printf("String is now: %s\n", test_string);
+
     return 0;
 }
