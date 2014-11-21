@@ -289,6 +289,27 @@ char* back(char str[], int l)
     return substring(str, l, end);
 }
 
+void orderBy(char str[])
+{
+    int changed = 1;
+    while (changed) 
+    {
+        changed = 0;
+        int i = 1;
+        while (str[i] != 0)
+        {
+            if (str[i-1] > str[i])
+            {
+                char temp = str[i];
+                str[i] = str[i-1];
+                str[i-1] = temp;
+                changed = 1;
+            }
+            i++;
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
     // your declaration of string test_string and stuff
@@ -349,6 +370,8 @@ int main(int argc, char *argv[])
     printf("String is now: %s\n", bac);
     char * sub = substring(test_string, 1, 3);
     printf("String is now: %s\n", sub);
+    orderBy(test_string);
+    printf("ordering string: %s\n", test_string);
 
     //clean up the substring
     free (fro);
