@@ -8,7 +8,6 @@
 #include <string.h> /* memset */
 #include <stdlib.h>
 
-
 /*
    Calculate the length of a string <str>
    length("hallo") -> 5
@@ -23,7 +22,6 @@ int length(char str[])
     }
     return i;
 }
-
 
 /*
    Calculates the (one-based) last position of a character <letter> in
@@ -334,25 +332,31 @@ int main(int argc, char *argv[])
     printf( "length of test-string \"%s\": %d\n", test_string, length(test_string));
 
     //last character
-    printf( "Last occurence of character %c in test-string \"%s\": %d\n", toFind, test_string, last(toFind, test_string));
+    printf( "Last occurence of character %c in test-string \"%s\": %d\n", 
+            toFind, test_string, last(toFind, test_string));
 
     //first character
-    printf( "first occurence of character %c in test-string \"%s\": %d\n", toFind, test_string, first(toFind, test_string));
+    printf( "first occurence of character %c in test-string \"%s\": %d\n",
+            toFind, test_string, first(toFind, test_string));
 
     //numbers of character
-    printf( "Count of character %c in test-string \"%s\": %d\n", toFind, test_string, count(toFind, test_string));
+    printf( "Count of character %c in test-string \"%s\": %d\n", toFind,
+            test_string, count(toFind, test_string));
     char big_string[] = "vier fuenf sechss siebenn";
-    printf ("Biggest word in string \"%s\" starts at: %d\n", big_string, longest(big_string));
+    printf ("Biggest word in string \"%s\" starts at: %d\n",
+            big_string, longest(big_string));
 
     //comparision of 2 strings
     char str_a[] = "abc";
     char str_b[] = "djsflakjsdlf";
-    printf ("Comparison between \"%s\" and \"%s\": %d\n", str_a, str_b, cmp_strings(str_a, str_b));
+    printf ("Comparison between \"%s\" and \"%s\": %d\n",
+            str_a, str_b, cmp_strings(str_a, str_b));
 
     //replacing chars
     string_distro(big_string);   
     printf("Replacing chars in %s\n", test_string);
-    printf ("Char %c was replaced %d times with %c\n", 'l', substitute('l', 'k', test_string), 'k');
+    printf ("Char %c was replaced %d times with %c\n",
+            'l', substitute('l', 'k', test_string), 'k');
     printf("String is now: %s\n", test_string);
 
     //convert to lowercase
@@ -371,7 +375,6 @@ int main(int argc, char *argv[])
     printf("String is now: %s\n", test_string);
 
     //front-sbstring
-//    char * fro = front(test_string, 3);
     char * fro = newFront(test_string, 3);
     printf("String is now: %s\n", fro);
     //back-sbstring
@@ -379,6 +382,7 @@ int main(int argc, char *argv[])
     printf("String is now: %s\n", bac);
     char * sub = substring(test_string, 1, 3);
     printf("String is now: %s\n", sub);
+
     //clean up the substring
     free (fro);
     free (bac);
