@@ -262,38 +262,6 @@ int stringreverse(char str[])
     return 0;
 }
 
-char* front(char str[], int l)
-{
-   char * newString;
-   int i = 0;
-   newString = (char *) malloc(l*sizeof(char));
-   memset(newString, 0, l*sizeof(char));
-
-   for (i = 0; i < l; i++)
-   {
-        newString[i] = str[i];
-   }
-   newString[i] = 0;
-   return newString;
-}
-
-char* back(char str[], int s)
-{
-    char * newString;
-    int i = 0;
-    int l = length(str)-s+1;
-    newString = (char *) malloc(l*sizeof(char));
-    memset(newString, 0, l*sizeof(char));
-
-    for (i = 0; i < l; i++)
-    {
-        newString[i] = str[s]; 
-        s++;
-    }
-    newString[i] = 0;
-    return newString;
-}
-
 char* substring(char str[], int from, int to)
 {
     char * newString;
@@ -310,12 +278,12 @@ char* substring(char str[], int from, int to)
     return newString;
 }
 
-char* newFront(char str[], int l)
+char* front(char str[], int l)
 {
     return substring(str, 0, l);
 }
 
-char* newBack(char str[], int l)
+char* back(char str[], int l)
 {
     int end = length(str);
     return substring(str, l, end);
@@ -375,10 +343,10 @@ int main(int argc, char *argv[])
     printf("String is now: %s\n", test_string);
 
     //front-sbstring
-    char * fro = newFront(test_string, 3);
+    char * fro = front(test_string, 3);
     printf("String is now: %s\n", fro);
     //back-sbstring
-    char * bac = newBack(test_string, 3);
+    char * bac = back(test_string, 3);
     printf("String is now: %s\n", bac);
     char * sub = substring(test_string, 1, 3);
     printf("String is now: %s\n", sub);
