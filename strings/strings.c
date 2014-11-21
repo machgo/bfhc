@@ -289,7 +289,6 @@ char* back(char str[], int l)
     return substring(str, l, end);
 }
 
-
 int main(int argc, char *argv[])
 {
     // your declaration of string test_string and stuff
