@@ -11,7 +11,6 @@
  */
 
 #include <stdio.h>
-#include <string.h>
 
 unsigned int statistik[256];
 
@@ -34,7 +33,6 @@ void print_stat(unsigned int* statistik)
 int main(int argc, char **argv)
 {
     int i;
-    memset(statistik, 0, 256*sizeof(int));
 
     for (i=0; i<argc; i++)
     {
