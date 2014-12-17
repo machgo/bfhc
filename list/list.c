@@ -18,6 +18,7 @@ struct node * build123()
     return  start;
 }
 
+//PUSH
 void addToFront(struct node ** first, int data)
 {
     struct node * newItem;
@@ -26,7 +27,30 @@ void addToFront(struct node ** first, int data)
     newItem->data = data;
     *first = newItem;
 }
+//POP
+int removeFirst(struct node ** first)
+{
+    struct node * toRemove = *first;
+    int ret = toRemove->data;
+    *first = toRemove->next;
+    free (toRemove);
+    return ret;
+}
 
+
+void deleteList(struct node ** first)
+{
+    struct node * next = NULL;
+    struct node * act = *first;
+    while (act != NULL)
+    {
+        next = act->next;
+        printf("removing item at %p\n", act);
+        free (act);
+        act = next;
+    }
+    *first = NULL;
+}
 
 int lengthlist(struct node * list)
 {
@@ -53,6 +77,21 @@ void printlist(struct node * list)
     }
 }
 
+int getNth (struct node * list, int index)
+{
+    struct node * item = list;
+    int i = 0;
+
+    for (i = 0; i < index; i++) 
+    {
+        if (item != NULL)
+            item = item->next;
+        else
+            return -1;
+    }
+    return item->data;
+}
+
 int main(int argc, char *argv[])
 {
     struct node * a = build123();    
@@ -64,6 +103,15 @@ int main(int argc, char *argv[])
 
     printlist(a);
     printf("Length of list: %d\n", lengthlist(a));
+    printf("Get value of item %d: %d\n", 0, getNth(a, 0));
+
+    printf("Removing first item with value %d\n", removeFirst(&a));
+    printlist(a);
+
+    deleteList (&a);
+    printf("Listpointer is now: %p\n", a);
+
+
 
     return 0;
 }
