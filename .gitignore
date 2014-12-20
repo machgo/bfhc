@@ -33,3 +33,7 @@
 *.un~
 
 *.s
+
+#Tags
+tags
+
