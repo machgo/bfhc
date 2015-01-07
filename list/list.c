@@ -57,8 +57,7 @@ void insertAt(struct node ** first, int pos, int data)
     {
         temp = temp->next; 
     }
-    newItem->next = temp->next;
-    temp->next = newItem;
+    addToFront(&temp->next,data);
 }
 
 
