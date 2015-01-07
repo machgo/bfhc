@@ -37,6 +37,30 @@ int removeFirst(struct node ** first)
     return ret;
 }
 
+void insertAt(struct node ** first, int pos, int data)
+{
+    int i = 0;
+    struct node * temp;
+    temp = *first;
+
+    if (pos == 0)
+    {
+        addToFront(first, data);
+        return;
+    }
+
+    struct node * newItem;
+    newItem = malloc (sizeof(struct node));
+    newItem->data = data;
+
+    for (i = 0; i<(pos-1); i++)
+    {
+        temp = temp->next; 
+    }
+    newItem->next = temp->next;
+    temp->next = newItem;
+}
+
 
 void deleteList(struct node ** first)
 {
@@ -107,11 +131,11 @@ int main(int argc, char *argv[])
 
     printf("Removing first item with value %d\n", removeFirst(&a));
     printlist(a);
+    insertAt(&a,2,55);
+    printlist(a);
 
     deleteList (&a);
     printf("Listpointer is now: %p\n", a);
-
-
 
     return 0;
 }
