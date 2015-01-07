@@ -4,7 +4,7 @@ compiler:
     -clang
 
 script: 
-    make -C strings
-    make -C pointers
-    make -C argc
-    make -C list
+    -make -C strings
+    -make -C pointers
+    -make -C argc
+    -make -C list
